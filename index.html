@@ -228,6 +228,31 @@
   .service-card p{ color:var(--ink-soft); font-size:0.96rem; margin:0; }
 
   /* Portfolio */
+  .project-grid{
+    display:grid; grid-template-columns:repeat(2, 1fr); gap:1.25rem; margin-bottom:2.8rem;
+  }
+  @media (max-width: 800px){ .project-grid{ grid-template-columns:1fr; } }
+  .project-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px;
+    padding:1.5rem 1.5rem; display:flex; flex-direction:column; gap:0.7rem;
+  }
+  .project-card .loc{
+    font-family:"IBM Plex Mono", monospace; font-size:0.76rem; letter-spacing:0.04em;
+    color:var(--river);
+  }
+  .project-card h3{ font-size:1.1rem; }
+  .project-tags{ display:flex; flex-wrap:wrap; gap:0.4rem; }
+  .project-tags span{
+    font-family:"IBM Plex Mono", monospace; font-size:0.68rem; border:1px solid var(--forest);
+    color:var(--forest); border-radius:999px; padding:0.1rem 0.55rem;
+  }
+  .project-card p{ color:var(--ink-soft); font-size:0.92rem; margin:0; }
+  .project-stats{ display:flex; gap:1.5rem; margin-top:0.2rem; border-top:1px solid var(--line); padding-top:0.7rem; }
+  .project-stats div{ display:flex; flex-direction:column; }
+  .project-stats .n{ font-family:"Fraunces", serif; font-weight:700; font-size:1.05rem; color:var(--forest-strong); }
+  .project-stats .l{ font-family:"IBM Plex Mono", monospace; font-size:0.64rem; color:var(--ink-soft); text-transform:uppercase; }
+  .subhead{ font-size:1.05rem; margin-bottom:1.1rem; }
+
   .gallery-grid{
     display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:1.1rem;
   }
@@ -390,32 +415,16 @@
           <span class="service-tag">LIC</span>
           <h3><span lang-pt>Licenciamento Ambiental</span><span lang-en>Environmental Licensing</span></h3>
           <p>
-            <span lang-pt>Condução de processos de Licença Prévia, de Instalação e de Operação para loteamentos, condomínios e indústrias junto aos órgãos ambientais competentes (IMA-SC, prefeituras, órgãos federais).</span>
-            <span lang-en>Handling Prior, Installation, and Operating License processes for subdivisions, residential developments, and industrial facilities with the relevant environmental agencies (IMA-SC, municipal and federal bodies).</span>
-          </p>
-        </div>
-        <div class="service-card">
-          <span class="service-tag">EIA</span>
-          <h3><span lang-pt>EIA/RIMA</span><span lang-en>EIA/RIMA</span></h3>
-          <p>
-            <span lang-pt>Elaboração de Estudos de Impacto Ambiental e Relatórios de Impacto Ambiental para empreendimentos de significativo impacto, com diagnóstico de fauna, flora, recursos hídricos e comunidades afetadas.</span>
-            <span lang-en>Preparation of Environmental Impact Assessments and Reports for higher-impact projects, covering fauna, flora, water resources, and affected communities.</span>
-          </p>
-        </div>
-        <div class="service-card">
-          <span class="service-tag">EAS</span>
-          <h3><span lang-pt>Estudo Ambiental Simplificado</span><span lang-en>Simplified Environmental Study</span></h3>
-          <p>
-            <span lang-pt>Elaboração de EAS para empreendimentos de menor impacto, agilizando a análise e a emissão de licenças junto aos órgãos ambientais.</span>
-            <span lang-en>Preparation of simplified environmental studies (EAS) for lower-impact projects, speeding up agency review and license issuance.</span>
+            <span lang-pt>Condução de processos de Licença Prévia, de Instalação e de Operação para loteamentos, condomínios e indústrias junto aos órgãos ambientais competentes (IMA-SC, prefeituras, órgãos federais) — incluindo a elaboração de EIA/RIMA e EAS conforme o porte e o grau de impacto do empreendimento.</span>
+            <span lang-en>Handling Prior, Installation, and Operating License processes for subdivisions, residential developments, and industrial facilities with the relevant environmental agencies (IMA-SC, municipal and federal bodies) — including preparation of full EIA/RIMA or simplified EAS studies, depending on project size and impact.</span>
           </p>
         </div>
         <div class="service-card">
           <span class="service-tag">CTM</span>
           <h3><span lang-pt>Áreas Contaminadas</span><span lang-en>Contaminated Sites</span></h3>
           <p>
-            <span lang-pt>Avaliação de passivos ambientais e devida diligência para aquisição, financiamento ou desativação de terrenos e imóveis industriais.</span>
-            <span lang-en>Environmental liability assessment and due diligence for the acquisition, financing, or decommissioning of industrial land and property.</span>
+            <span lang-pt>Avaliação de passivos ambientais conforme NBR 15515 e devida diligência para aquisição, financiamento ou desativação de terrenos e imóveis industriais.</span>
+            <span lang-en>Environmental liability assessment per NBR 15515, and due diligence for the acquisition, financing, or decommissioning of industrial land and property.</span>
           </p>
         </div>
         <div class="service-card">
@@ -427,11 +436,43 @@
           </p>
         </div>
         <div class="service-card">
+          <span class="service-tag">AUD</span>
+          <h3><span lang-pt>Auditoria Ambiental &amp; ISO</span><span lang-en>Environmental Auditing &amp; ISO</span></h3>
+          <p>
+            <span lang-pt>Auditorias internas e externas de sistemas de gestão ISO 9001, ISO 14001 e ISO 45001, com apoio ao tratamento de não conformidades e preparação para certificação.</span>
+            <span lang-en>Internal and external audits of ISO 9001, ISO 14001, and ISO 45001 management systems, including nonconformity resolution and certification readiness support.</span>
+          </p>
+        </div>
+        <div class="service-card">
+          <span class="service-tag">GEO</span>
+          <h3><span lang-pt>Apoio Geotécnico &amp; Laboratorial</span><span lang-en>Geotechnical &amp; Laboratory Support</span></h3>
+          <p>
+            <span lang-pt>Acompanhamento de ensaios geotécnicos e de laboratório, controle de qualidade de amostragem e experiência internacional com padrões de acreditação (NATA, Austrália).</span>
+            <span lang-en>Oversight of geotechnical and laboratory testing, sampling quality control, and international experience with accreditation standards (NATA, Australia).</span>
+          </p>
+        </div>
+        <div class="service-card">
           <span class="service-tag">RES</span>
           <h3><span lang-pt>Gestão de Resíduos &amp; Compliance</span><span lang-en>Waste Management &amp; Compliance</span></h3>
           <p>
-            <span lang-pt>Planos de Gerenciamento de Resíduos Sólidos (PGRS), auditorias de conformidade legal e apoio à adequação de processos industriais às normas ambientais vigentes.</span>
-            <span lang-en>Solid Waste Management Plans (PGRS), legal compliance audits, and support adapting industrial processes to current environmental regulations.</span>
+            <span lang-pt>Planos de Gerenciamento de Resíduos Sólidos e da Construção Civil (PGRS, PGRCC), auditorias de conformidade legal e apoio à adequação de processos industriais às normas ambientais vigentes.</span>
+            <span lang-en>Solid Waste and Construction Waste Management Plans (PGRS, PGRCC), legal compliance audits, and support adapting industrial processes to current environmental regulations.</span>
+          </p>
+        </div>
+        <div class="service-card">
+          <span class="service-tag">REH</span>
+          <h3><span lang-pt>Recursos Hídricos &amp; Outorga</span><span lang-en>Water Resources &amp; Water-Use Permits</span></h3>
+          <p>
+            <span lang-pt>Elaboração de processos de outorga de uso de recursos hídricos junto aos órgãos competentes, e estudos de autodepuração de efluentes lançados em corpos hídricos.</span>
+            <span lang-en>Water-use grant (outorga) applications with the relevant agencies, and effluent self-purification studies for discharge into receiving water bodies.</span>
+          </p>
+        </div>
+        <div class="service-card">
+          <span class="service-tag">ETE</span>
+          <h3><span lang-pt>Estações de Tratamento (ETA/ETE)</span><span lang-en>Water &amp; Sewage Treatment Plants</span></h3>
+          <p>
+            <span lang-pt>Responsabilidade técnica em projetos e operação de Estações de Tratamento de Água (ETA) e de Esgoto (ETE), com dimensionamento e adequação aos padrões de lançamento.</span>
+            <span lang-en>Technical responsibility for the design and operation of Water (ETA) and Sewage (ETE) Treatment Plants, including sizing and compliance with discharge standards.</span>
           </p>
         </div>
       </div>
@@ -442,20 +483,80 @@
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow"><span lang-pt>Portfólio</span><span lang-en>Portfolio</span></span>
-        <h2><span lang-pt>Trabalho de campo</span><span lang-en>Field work</span></h2>
-        <p style="color:var(--ink-soft); margin-top:0.8rem;">
-          <span lang-pt>Registros de atividades técnicas em campo: levantamento topográfico, amostragem de solo e água, e monitoramento de qualidade do ar.</span>
-          <span lang-en>Records of technical field activities: topographic survey, soil and water sampling, and air quality monitoring.</span>
-        </p>
+        <h2><span lang-pt>Projetos e trabalho de campo</span><span lang-en>Projects and field work</span></h2>
       </div>
+
+      <h3 class="subhead"><span lang-pt>Projetos selecionados</span><span lang-en>Selected projects</span></h3>
+      <div class="project-grid">
+        <div class="project-card">
+          <span class="loc">Itajaí – SC</span>
+          <h3><span lang-pt>Loteamento Residencial Bela Vista</span><span lang-en>Bela Vista Residential Subdivision</span></h3>
+          <div class="project-tags">
+            <span><span lang-pt>Licenciamento Ambiental</span><span lang-en>Environmental Licensing</span></span>
+            <span>EIV</span>
+            <span>PGRCC</span>
+            <span><span lang-pt>Laudo de Ruído</span><span lang-en>Noise Report</span></span>
+            <span><span lang-pt>Tráfego Veicular</span><span lang-en>Traffic Study</span></span>
+          </div>
+          <p>
+            <span lang-pt>Licenciamento ambiental e Estudo de Impacto de Vizinhança (EIV) completo — incluindo PGRCC, laudo de ruído e estudo de tráfego veicular — para loteamento residencial com infraestrutura completa de drenagem, água e esgoto.</span>
+            <span lang-en>Full environmental licensing and Neighborhood Impact Study (EIV) — including a construction waste plan, noise report, and traffic study — for a residential subdivision with full drainage, water, and sewage infrastructure.</span>
+          </p>
+          <div class="project-stats">
+            <div><span class="n">259</span><span class="l"><span lang-pt>Lotes</span><span lang-en>Lots</span></span></div>
+            <div><span class="n">14</span><span class="l"><span lang-pt>Quadras</span><span lang-en>Blocks</span></span></div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <span class="loc">Presidente Getúlio – SC</span>
+          <h3><span lang-pt>Loteamento Residencial</span><span lang-en>Residential Subdivision</span></h3>
+          <div class="project-tags">
+            <span><span lang-pt>Licenciamento Ambiental</span><span lang-en>Environmental Licensing</span></span>
+            <span>EIV</span>
+            <span>PGRCC</span>
+            <span><span lang-pt>Laudo de Ruído</span><span lang-en>Noise Report</span></span>
+            <span><span lang-pt>Tráfego Veicular</span><span lang-en>Traffic Study</span></span>
+          </div>
+          <p>
+            <span lang-pt>Licenciamento ambiental e EIV completo para loteamento residencial com preservação de vegetação nativa e área verde interna.</span>
+            <span lang-en>Full environmental licensing and EIV for a residential subdivision with preserved native vegetation and internal green space.</span>
+          </p>
+          <div class="project-stats">
+            <div><span class="n">104.032 m²</span><span class="l"><span lang-pt>Área</span><span lang-en>Area</span></span></div>
+            <div><span class="n">156</span><span class="l"><span lang-pt>Lotes</span><span lang-en>Lots</span></span></div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <span class="loc">Rio do Meio, Itajaí – SC</span>
+          <h3><span lang-pt>Condomínio Rio do Meio</span><span lang-en>Rio do Meio Condominium</span></h3>
+          <div class="project-tags">
+            <span><span lang-pt>Licenciamento Ambiental</span><span lang-en>Environmental Licensing</span></span>
+            <span>EIV</span>
+            <span>PGRCC</span>
+            <span><span lang-pt>Laudo de Ruído</span><span lang-en>Noise Report</span></span>
+            <span><span lang-pt>Tráfego Veicular</span><span lang-en>Traffic Study</span></span>
+          </div>
+          <p>
+            <span lang-pt>Licenciamento ambiental e EIV completo para condomínio fechado às margens do Rio do Meio, com faixas de APP e área verde preservadas.</span>
+            <span lang-en>Full environmental licensing and EIV for a gated condominium along the Rio do Meio, with preserved riparian buffers and green space.</span>
+          </p>
+          <div class="project-stats">
+            <div><span class="n">83.605 m²</span><span class="l"><span lang-pt>Área</span><span lang-en>Area</span></span></div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="subhead"><span lang-pt>Trabalho de campo</span><span lang-en>Field work</span></h3>
       <div class="gallery-grid">
         <figure>
           <img src="assets/img/campo-topografia.jpg" alt="Levantamento topográfico com GNSS RTK em remanescente de mata" loading="lazy">
           <figcaption><span lang-pt>Levantamento topográfico com GNSS RTK</span><span lang-en>Topographic survey with GNSS RTK</span></figcaption>
         </figure>
         <figure>
-          <img src="assets/img/campo-remediacao.jpg" alt="Contenção e sucção em área industrial durante intervenção ambiental" loading="lazy">
-          <figcaption><span lang-pt>Intervenção ambiental em área industrial</span><span lang-en>Environmental works at an industrial site</span></figcaption>
+          <img src="assets/img/campo-remediacao.jpg" alt="Contenção e sucção em intervenção de contaminação de solo urbano" loading="lazy">
+          <figcaption><span lang-pt>Intervenção em contaminação de solo urbano</span><span lang-en>Urban soil contamination works</span></figcaption>
         </figure>
         <figure>
           <img src="assets/img/campo-amostras-lab.jpg" alt="Amostras de solo acondicionadas para análise laboratorial" loading="lazy">
@@ -472,6 +573,10 @@
         <figure>
           <img src="assets/img/campo-amostra-agua.jpg" alt="Coleta de amostra de água para análise laboratorial" loading="lazy">
           <figcaption><span lang-pt>Coleta de amostra de água</span><span lang-en>Water sample collection</span></figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/mapa-geoprocessamento.jpg" alt="Mapeamento temático de bacia de drenagem" loading="lazy">
+          <figcaption><span lang-pt>Geoprocessamento: mapeamento de bacia de drenagem</span><span lang-en>Geoprocessing: drainage basin mapping</span></figcaption>
         </figure>
       </div>
     </div>
