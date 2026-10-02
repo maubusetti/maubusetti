@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="pt-BR" data-lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Busetti Ambiental — Consultoria Ambiental</title>
+<meta name="description" content="Consultoria ambiental de Mauricio Busetti no Vale do Itajaí, SC: licenciamento ambiental, EIA/RIMA, áreas contaminadas e monitoramento de ar, água e solo.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BF%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F2F5EF;
+    --surface:#E6E9DE;
+    --surface-strong:#DBDFCE;
+    --ink:#17241C;
+    --ink-soft:#44523E;
+    --forest:#2E5941;
+    --forest-strong:#1E3E2C;
+    --river:#1B6E82;
+    --gold:#A87A2E;
+    --line:#C7CBB8;
+    --on-forest:#F2F5EF;
+    --shadow: 0 18px 40px -20px rgba(23,36,28,0.35);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0F1B13;
+      --surface:#16241C;
+      --surface-strong:#1D2E22;
+      --ink:#E9EDE6;
+      --ink-soft:#AEB8A6;
+      --forest:#6FBE8F;
+      --forest-strong:#8FD3AA;
+      --river:#5FC7D6;
+      --gold:#D9A84E;
+      --line:#2A3B2E;
+      --on-forest:#0F1B13;
+      --shadow: 0 18px 40px -20px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0F1B13;
+    --surface:#16241C;
+    --surface-strong:#1D2E22;
+    --ink:#E9EDE6;
+    --ink-soft:#AEB8A6;
+    --forest:#6FBE8F;
+    --forest-strong:#8FD3AA;
+    --river:#5FC7D6;
+    --gold:#D9A84E;
+    --line:#2A3B2E;
+    --on-forest:#0F1B13;
+    --shadow: 0 18px 40px -20px rgba(0,0,0,0.6);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Work Sans", ui-sans-serif, system-ui, sans-serif;
+    font-size:1.05rem;
+    line-height:1.6;
+  }
+  html[data-lang="pt"] [lang-en]{display:none;}
+  html[data-lang="en"] [lang-pt]{display:none;}
+
+  h1,h2,h3{
+    font-family:"Fraunces", ui-serif, Georgia, serif;
+    font-weight:600;
+    color:var(--ink);
+    text-wrap:balance;
+    margin:0;
+  }
+  .eyebrow{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:0.75rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--forest);
+    display:block;
+    margin-bottom:0.9rem;
+  }
+  a{color:var(--river);}
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--river);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  .wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 1.5rem;
+  }
+
+  /* ---------- Header ---------- */
+  header.site{
+    position:sticky; top:0; z-index:40;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .site-row{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:1rem; padding:0.9rem 0; flex-wrap:wrap;
+  }
+  .wordmark{
+    display:flex; flex-direction:column; gap:0.1rem; text-decoration:none;
+  }
+  .wordmark .name{
+    font-family:"Fraunces", serif; font-weight:600; font-size:1.15rem; color:var(--ink);
+  }
+  .wordmark .tag{
+    font-family:"IBM Plex Mono", monospace; font-size:0.65rem; letter-spacing:0.08em;
+    color:var(--ink-soft); text-transform:uppercase;
+  }
+  nav.main{
+    display:flex; align-items:center; gap:1.4rem; flex-wrap:wrap;
+  }
+  nav.main a{
+    color:var(--ink-soft); text-decoration:none; font-size:0.92rem; font-weight:500;
+    border-bottom:1px solid transparent; padding-bottom:2px;
+  }
+  nav.main a:hover{ color:var(--forest-strong); border-color:var(--forest); }
+  .lang-toggle{
+    display:flex; border:1px solid var(--line); border-radius:999px; overflow:hidden;
+    font-family:"IBM Plex Mono", monospace; font-size:0.72rem;
+  }
+  .lang-toggle button{
+    border:none; background:transparent; color:var(--ink-soft); padding:0.35rem 0.7rem;
+    cursor:pointer; letter-spacing:0.05em;
+  }
+  .lang-toggle button[aria-pressed="true"]{
+    background:var(--forest); color:var(--on-forest);
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-svg{
+    position:absolute; inset:0; width:100%; height:100%;
+    color:var(--forest);
+  }
+  .hero-inner{
+    position:relative; padding:4.5rem 0 4rem;
+    display:flex; flex-direction:column; gap:1.6rem;
+  }
+  .coords{
+    font-family:"IBM Plex Mono", monospace; font-size:0.8rem; letter-spacing:0.1em;
+    color:var(--river); text-transform:uppercase;
+  }
+  h1.headline{
+    font-size:clamp(2.2rem, 4.6vw + 1rem, 3.6rem);
+    line-height:1.08;
+    max-width:16ch;
+  }
+  .lede{
+    max-width:52ch;
+    color:var(--ink-soft);
+    font-size:1.1rem;
+  }
+  .hero-actions{
+    display:flex; gap:0.9rem; flex-wrap:wrap; margin-top:0.4rem;
+  }
+  .btn{
+    font-family:"Work Sans", sans-serif; font-weight:600; font-size:0.95rem;
+    padding:0.75rem 1.4rem; border-radius:8px; text-decoration:none;
+    display:inline-flex; align-items:center; gap:0.5rem;
+    border:1px solid transparent;
+  }
+  .btn.primary{ background:var(--forest); color:var(--on-forest); }
+  .btn.primary:hover{ background:var(--forest-strong); }
+  .btn.ghost{ border-color:var(--line); color:var(--ink); }
+  .btn.ghost:hover{ border-color:var(--forest); color:var(--forest-strong); }
+
+  /* ---------- Sections ---------- */
+  section{ padding:4rem 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+  .section-head{ margin-bottom:2.2rem; max-width:60ch; }
+  .section-head h2{ font-size:clamp(1.5rem, 2vw + 1rem, 2.1rem); }
+
+  /* About */
+  .about-body{ display:grid; grid-template-columns: 1.1fr 0.9fr; gap:2.5rem; align-items:start; }
+  .about-body p{ color:var(--ink-soft); max-width:60ch; }
+  .about-body p + p{ margin-top:1rem; }
+  .region-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px;
+    padding:1.4rem 1.5rem; box-shadow:var(--shadow);
+  }
+  .region-card .eyebrow{ margin-bottom:0.6rem; }
+  .region-card ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0.6rem; }
+  .region-card li{
+    display:flex; justify-content:space-between; gap:1rem;
+    font-family:"IBM Plex Mono", monospace; font-size:0.82rem;
+    border-top:1px solid var(--line); padding-top:0.6rem;
+  }
+  .region-card li:first-child{ border-top:none; padding-top:0; }
+  .region-card li span:first-child{ color:var(--ink-soft); }
+  .region-card li span:last-child{ color:var(--ink); text-align:right; }
+  @media (max-width: 720px){ .about-body{ grid-template-columns:1fr; } }
+
+  /* Services */
+  .service-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1.25rem;
+  }
+  @media (max-width: 800px){ .service-grid{ grid-template-columns:1fr; } }
+  .service-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px;
+    padding:1.6rem 1.5rem; display:flex; flex-direction:column; gap:0.8rem;
+  }
+  .service-tag{
+    font-family:"IBM Plex Mono", monospace; font-size:0.72rem; letter-spacing:0.1em;
+    color:var(--river); border:1px solid var(--river); border-radius:999px;
+    padding:0.15rem 0.6rem; width:fit-content;
+  }
+  .service-card h3{ font-size:1.15rem; }
+  .service-card p{ color:var(--ink-soft); font-size:0.96rem; margin:0; }
+
+  /* Portfolio */
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:1.1rem;
+  }
+  .gallery-grid figure{ margin:0; }
+  .gallery-grid img{
+    width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:10px;
+    border:1px solid var(--line); display:block;
+  }
+  .gallery-grid figcaption{
+    font-size:0.82rem; color:var(--ink-soft); margin-top:0.55rem;
+  }
+
+  /* Process */
+  .process-list{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:0; position:relative;
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  @media (max-width: 800px){ .process-list{ grid-template-columns:1fr; } }
+  .process-step{
+    padding:1.3rem 1.2rem; border-right:1px solid var(--line);
+    display:flex; flex-direction:column; gap:0.5rem;
+  }
+  .process-list .process-step:last-child{ border-right:none; }
+  @media (max-width:800px){
+    .process-step{ border-right:none; border-bottom:1px solid var(--line); }
+    .process-list .process-step:last-child{ border-bottom:none; }
+  }
+  .process-code{
+    font-family:"IBM Plex Mono", monospace; color:var(--gold); font-size:0.85rem;
+    display:flex; align-items:baseline; gap:0.5rem;
+  }
+  .process-code .n{ color:var(--ink-soft); }
+  .process-step h3{ font-size:1rem; font-family:"Work Sans", sans-serif; font-weight:600; }
+  .process-step p{ margin:0; color:var(--ink-soft); font-size:0.88rem; }
+
+  /* Contact */
+  .contact-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:2.5rem; align-items:start; }
+  @media (max-width:720px){ .contact-grid{ grid-template-columns:1fr; } }
+  .contact-list{ list-style:none; margin:1.6rem 0 0; padding:0; display:flex; flex-direction:column; gap:1rem; }
+  .contact-list li{
+    display:flex; align-items:baseline; gap:0.8rem;
+    border-top:1px solid var(--line); padding-top:1rem;
+  }
+  .contact-list li:first-child{ border-top:none; padding-top:0; }
+  .contact-list .label{
+    font-family:"IBM Plex Mono", monospace; font-size:0.72rem; letter-spacing:0.08em;
+    color:var(--ink-soft); text-transform:uppercase; width:6.5rem; flex-shrink:0;
+  }
+  .contact-list a, .contact-list span.value{ color:var(--ink); font-weight:500; text-decoration:none; }
+  .contact-list a:hover{ color:var(--forest-strong); }
+  .contact-card{
+    background:var(--surface-strong); border:1px solid var(--line); border-radius:12px;
+    padding:1.8rem; box-shadow:var(--shadow);
+  }
+  .contact-card p{ color:var(--ink-soft); margin:0 0 1.2rem; }
+
+  footer{
+    padding:2.2rem 0; font-family:"IBM Plex Mono", monospace; font-size:0.78rem;
+    color:var(--ink-soft); display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;
+  }
+  footer a{ color:var(--ink-soft); text-decoration:underline; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap site-row">
+    <a href="#top" class="wordmark">
+      <span class="name">Busetti Ambiental</span>
+      <span class="tag"><span lang-pt>Consultoria Ambiental</span><span lang-en>Environmental Consulting</span></span>
+    </a>
+    <nav class="main">
+      <a href="#sobre"><span lang-pt>Sobre</span><span lang-en>About</span></a>
+      <a href="#servicos"><span lang-pt>Serviços</span><span lang-en>Services</span></a>
+      <a href="#portfolio"><span lang-pt>Portfólio</span><span lang-en>Portfolio</span></a>
+      <a href="#processo"><span lang-pt>Processo</span><span lang-en>Process</span></a>
+      <a href="#contato"><span lang-pt>Contato</span><span lang-en>Contact</span></a>
+    </nav>
+    <div class="lang-toggle" role="group" aria-label="Language / Idioma">
+      <button type="button" data-lang-btn="pt" aria-pressed="true">PT</button>
+      <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <svg class="hero-svg" viewBox="0 0 1200 520" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,120 C150,80 300,150 480,110 S 780,60 1000,110 1200,90 1200,90 L1200,0 L0,0 Z" fill="currentColor" opacity="0.06"></path>
+      <path d="M0,180 C180,140 340,210 520,175 S 820,130 1050,175 1200,150 1200,150" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.22"></path>
+      <path d="M0,230 C200,195 380,255 560,222 S 860,180 1080,222 1200,205 1200,205" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.16"></path>
+      <path d="M0,280 C220,250 400,300 600,268 S 900,232 1120,268 1200,255 1200,255" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.12"></path>
+      <g opacity="0.14">
+        <circle cx="60" cy="470" r="70" fill="currentColor"></circle>
+        <circle cx="160" cy="450" r="90" fill="currentColor"></circle>
+        <circle cx="300" cy="475" r="80" fill="currentColor"></circle>
+        <circle cx="430" cy="455" r="95" fill="currentColor"></circle>
+        <circle cx="580" cy="480" r="75" fill="currentColor"></circle>
+        <circle cx="720" cy="450" r="100" fill="currentColor"></circle>
+        <circle cx="880" cy="478" r="85" fill="currentColor"></circle>
+        <circle cx="1020" cy="452" r="95" fill="currentColor"></circle>
+        <circle cx="1160" cy="475" r="80" fill="currentColor"></circle>
+      </g>
+    </svg>
+    <div class="wrap hero-inner">
+      <span class="coords">27°S · <span lang-pt>Vale do Itajaí, SC, Brasil</span><span lang-en>Itajaí Valley, SC, Brazil</span></span>
+      <h1 class="headline">
+        <span lang-pt>Consultoria ambiental com raízes no Vale do Itajaí.</span>
+        <span lang-en>Environmental consulting rooted in the Itajaí Valley.</span>
+      </h1>
+      <p class="lede">
+        <span lang-pt>Licenciamento, estudos de impacto e gestão de resíduos para empresas e empreendimentos que precisam operar em conformidade com a legislação ambiental — da Mata Atlântica ao chão de fábrica.</span>
+        <span lang-en>Licensing, impact studies, and waste management for companies and projects that need to operate in compliance with environmental law — from the Atlantic Forest to the factory floor.</span>
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#contato"><span lang-pt>Falar com Mauricio</span><span lang-en>Talk to Mauricio</span></a>
+        <a class="btn ghost" href="#portfolio"><span lang-pt>Ver portfólio</span><span lang-en>View portfolio</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow"><span lang-pt>Sobre</span><span lang-en>About</span></span>
+        <h2><span lang-pt>Mauricio Busetti</span><span lang-en>Mauricio Busetti</span></h2>
+      </div>
+      <div class="about-body">
+        <div>
+          <p>
+            <span lang-pt>Consultor ambiental dedicado a traduzir exigências legais complexas em planos técnicos aplicáveis — para indústrias, construtoras e empreendimentos rurais do Vale do Itajaí e de Santa Catarina.</span>
+            <span lang-en>Environmental consultant focused on translating complex legal requirements into workable technical plans — for industries, construction firms, and rural ventures across the Itajaí Valley and Santa Catarina.</span>
+          </p>
+          <p>
+            <span lang-pt>O trabalho parte do território: os regimes de cheia do rio Itajaí-Açu, os remanescentes de Mata Atlântica e a base industrial da região — têxtil, metalmecânica, agroindústria — definem, na prática, o que um licenciamento ou um estudo de impacto precisa responder.</span>
+            <span lang-en>The work starts from the territory itself: the flood regime of the Itajaí-Açu river, the remaining Atlantic Forest cover, and the region's industrial base — textiles, metalworking, agribusiness — shape, in practice, what a licensing process or impact study actually needs to answer.</span>
+          </p>
+        </div>
+        <div class="region-card">
+          <span class="eyebrow"><span lang-pt>Área de atuação</span><span lang-en>Coverage area</span></span>
+          <ul>
+            <li><span><span lang-pt>Bacia</span><span lang-en>Basin</span></span><span>Itajaí-Açu</span></li>
+            <li><span><span lang-pt>Bioma</span><span lang-en>Biome</span></span><span><span lang-pt>Mata Atlântica</span><span lang-en>Atlantic Forest</span></span></li>
+            <li><span><span lang-pt>Região</span><span lang-en>Region</span></span><span>Vale do Itajaí, SC</span></li>
+            <li><span><span lang-pt>País</span><span lang-en>Country</span></span><span><span lang-pt>Brasil</span><span lang-en>Brazil</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow"><span lang-pt>Serviços</span><span lang-en>Services</span></span>
+        <h2><span lang-pt>Onde eu ajudo</span><span lang-en>Where I help</span></h2>
+      </div>
+      <div class="service-grid">
+        <div class="service-card">
+          <span class="service-tag">LIC</span>
+          <h3><span lang-pt>Licenciamento Ambiental</span><span lang-en>Environmental Licensing</span></h3>
+          <p>
+            <span lang-pt>Condução de processos de Licença Prévia, de Instalação e de Operação para loteamentos, condomínios e indústrias junto aos órgãos ambientais competentes (IMA-SC, prefeituras, órgãos federais).</span>
+            <span lang-en>Handling Prior, Installation, and Operating License processes for subdivisions, residential developments, and industrial facilities with the relevant environmental agencies (IMA-SC, municipal and federal bodies).</span>
+          </p>
+        </div>
+        <div class="service-card">
+          <span class="service-tag">EIA</span>
+          <h3><span lang-pt>EIA/RIMA</span><span lang-en>EIA/RIMA</span></h3>
+          <p>
+            <span lang-pt>Elaboração de Estudos de Impacto Ambiental e Relatórios de Impacto Ambiental para empreendimentos de significativo impacto, com diagnóstico de fauna, flora, recursos hídricos e comunidades afetadas.</span>
+            <span lang-en>Preparation of Environmental Impact Assessments and Reports for higher-impact projects, covering fauna, flora, water resources, and affected communities.</span>
+          </p>
+        </div>
+        <div class="service-card">
+          <span class="service-tag">EAS</span>
+          <h3><span lang-pt>Estudo Ambiental Simplificado</span><span lang-en>Simplified Environmental Study</span></h3>
+          <p>
+            <span lang-pt>Elaboração de EAS para empreendimentos de menor impacto, agilizando a análise e a emissão de licenças junto aos órgãos ambientais.</span>
+            <span lang-en>Preparation of simplified environmental studies (EAS) for lower-impact projects, speeding up agency review and license issuance.</span>
+          </p>
+        </div>
+        <div class="service-card">
+          <span class="service-tag">CTM</span>
+          <h3><span lang-pt>Áreas Contaminadas</span><span lang-en>Contaminated Sites</span></h3>
+          <p>
+            <span lang-pt>Avaliação de passivos ambientais e devida diligência para aquisição, financiamento ou desativação de terrenos e imóveis industriais.</span>
+            <span lang-en>Environmental liability assessment and due diligence for the acquisition, financing, or decommissioning of industrial land and property.</span>
+          </p>
+        </div>
+        <div class="service-card">
+          <span class="service-tag">MON</span>
+          <h3><span lang-pt>Monitoramento de Ar, Água e Solo</span><span lang-en>Air, Water &amp; Soil Monitoring</span></h3>
+          <p>
+            <span lang-pt>Amostragem e monitoramento de qualidade do ar, água e solo, com acompanhamento de condicionantes de licença e laudos técnicos periódicos.</span>
+            <span lang-en>Sampling and monitoring of air, water, and soil quality, including tracking of license conditions and periodic technical reporting.</span>
+          </p>
+        </div>
+        <div class="service-card">
+          <span class="service-tag">RES</span>
+          <h3><span lang-pt>Gestão de Resíduos &amp; Compliance</span><span lang-en>Waste Management &amp; Compliance</span></h3>
+          <p>
+            <span lang-pt>Planos de Gerenciamento de Resíduos Sólidos (PGRS), auditorias de conformidade legal e apoio à adequação de processos industriais às normas ambientais vigentes.</span>
+            <span lang-en>Solid Waste Management Plans (PGRS), legal compliance audits, and support adapting industrial processes to current environmental regulations.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow"><span lang-pt>Portfólio</span><span lang-en>Portfolio</span></span>
+        <h2><span lang-pt>Trabalho de campo</span><span lang-en>Field work</span></h2>
+        <p style="color:var(--ink-soft); margin-top:0.8rem;">
+          <span lang-pt>Registros de atividades técnicas em campo: levantamento topográfico, amostragem de solo e água, e monitoramento de qualidade do ar.</span>
+          <span lang-en>Records of technical field activities: topographic survey, soil and water sampling, and air quality monitoring.</span>
+        </p>
+      </div>
+      <div class="gallery-grid">
+        <figure>
+          <img src="assets/img/campo-topografia.jpg" alt="Levantamento topográfico com GNSS RTK em remanescente de mata" loading="lazy">
+          <figcaption><span lang-pt>Levantamento topográfico com GNSS RTK</span><span lang-en>Topographic survey with GNSS RTK</span></figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/campo-remediacao.jpg" alt="Contenção e sucção em área industrial durante intervenção ambiental" loading="lazy">
+          <figcaption><span lang-pt>Intervenção ambiental em área industrial</span><span lang-en>Environmental works at an industrial site</span></figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/campo-amostras-lab.jpg" alt="Amostras de solo acondicionadas para análise laboratorial" loading="lazy">
+          <figcaption><span lang-pt>Amostras de solo para análise laboratorial</span><span lang-en>Soil samples for laboratory analysis</span></figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/campo-amostra-solo.jpg" alt="Coleta de amostra de solo em campo" loading="lazy">
+          <figcaption><span lang-pt>Coleta de amostra de solo em campo</span><span lang-en>Soil sample collection in the field</span></figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/campo-monitoramento-ar.jpg" alt="Bombas de amostragem de ar para monitoramento de qualidade do ar" loading="lazy">
+          <figcaption><span lang-pt>Monitoramento de qualidade do ar</span><span lang-en>Air quality monitoring</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="processo">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow"><span lang-pt>Processo</span><span lang-en>Process</span></span>
+        <h2><span lang-pt>Como funciona um licenciamento</span><span lang-en>How environmental licensing works</span></h2>
+      </div>
+    </div>
+    <div class="wrap" style="padding:0 1.5rem;">
+      <div class="process-list">
+        <div class="process-step">
+          <span class="process-code"><span class="n">01</span> LP</span>
+          <h3><span lang-pt>Licença Prévia</span><span lang-en>Prior License</span></h3>
+          <p><span lang-pt>Viabilidade ambiental do empreendimento, ainda na fase de planejamento.</span><span lang-en>Environmental feasibility, assessed during the planning stage.</span></p>
+        </div>
+        <div class="process-step">
+          <span class="process-code"><span class="n">02</span> LI</span>
+          <h3><span lang-pt>Licença de Instalação</span><span lang-en>Installation License</span></h3>
+          <p><span lang-pt>Autorização para iniciar a instalação, conforme projeto executivo aprovado.</span><span lang-en>Authorization to begin installation, per the approved executive design.</span></p>
+        </div>
+        <div class="process-step">
+          <span class="process-code"><span class="n">03</span> LO</span>
+          <h3><span lang-pt>Licença de Operação</span><span lang-en>Operating License</span></h3>
+          <p><span lang-pt>Autorização para operar, após verificação do cumprimento das condicionantes.</span><span lang-en>Authorization to operate, once compliance with license conditions is verified.</span></p>
+        </div>
+        <div class="process-step">
+          <span class="process-code"><span class="n">04</span> MON</span>
+          <h3><span lang-pt>Monitoramento</span><span lang-en>Monitoring</span></h3>
+          <p><span lang-pt>Acompanhamento contínuo e renovação periódica das licenças.</span><span lang-en>Ongoing monitoring and periodic license renewal.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="wrap contact-grid">
+      <div>
+        <span class="eyebrow"><span lang-pt>Contato</span><span lang-en>Contact</span></span>
+        <h2><span lang-pt>Vamos conversar sobre o seu projeto</span><span lang-en>Let's talk about your project</span></h2>
+        <ul class="contact-list">
+          <li>
+            <span class="label"><span lang-pt>E-mail</span><span lang-en>Email</span></span>
+            <a href="mailto:busettienvironmental@gmail.com">busettienvironmental@gmail.com</a>
+          </li>
+          <li>
+            <span class="label"><span lang-pt>WhatsApp</span><span lang-en>WhatsApp</span></span>
+            <a href="https://wa.me/5554991280201" target="_blank" rel="noopener">+55 54 99128 0201</a>
+          </li>
+          <li>
+            <span class="label"><span lang-pt>LinkedIn</span><span lang-en>LinkedIn</span></span>
+            <a href="https://www.linkedin.com/in/busettienvironmental/" target="_blank" rel="noopener">/busettienvironmental</a>
+          </li>
+          <li>
+            <span class="label"><span lang-pt>Região</span><span lang-en>Region</span></span>
+            <span class="value">Vale do Itajaí, SC — <span lang-pt>Brasil</span><span lang-en>Brazil</span></span>
+          </li>
+        </ul>
+      </div>
+      <div class="contact-card">
+        <span class="eyebrow"><span lang-pt>Primeiro contato</span><span lang-en>First contact</span></span>
+        <p>
+          <span lang-pt>Envie um resumo do empreendimento, a localização e a fase atual do projeto — o retorno traz um panorama do que a legislação exige e dos próximos passos.</span>
+          <span lang-en>Send a short summary of the project, its location, and the current stage — the reply will outline what the law requires and the next steps.</span>
+        </p>
+        <a class="btn primary" href="mailto:busettienvironmental@gmail.com?subject=Consultoria%20ambiental"><span lang-pt>Enviar e-mail</span><span lang-en>Send email</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Busetti <span lang-pt>Consultoria Ambiental</span><span lang-en>Environmental Consulting</span> — <span lang-pt>Vale do Itajaí, SC</span><span lang-en>Itajaí Valley, SC</span></span>
+  <a href="https://www.linkedin.com/in/busettienvironmental/" target="_blank" rel="noopener">LinkedIn ↗</a>
+</footer>
+
+<script>
+  (function(){
+    var root = document.documentElement;
+    var buttons = document.querySelectorAll('[data-lang-btn]');
+    function setLang(lang){
+      root.setAttribute('data-lang', lang);
+      root.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
+      buttons.forEach(function(b){
+        b.setAttribute('aria-pressed', b.getAttribute('data-lang-btn') === lang ? 'true' : 'false');
+      });
+      try{ localStorage.setItem('busetti-lang', lang); }catch(e){}
+    }
+    buttons.forEach(function(b){
+      b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang-btn')); });
+    });
+    var stored = null;
+    try{ stored = localStorage.getItem('busetti-lang'); }catch(e){}
+    setLang(stored === 'en' ? 'en' : 'pt');
+  })();
+</script>
+</body>
+</html>
